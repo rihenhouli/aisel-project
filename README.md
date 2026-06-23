@@ -1,6 +1,10 @@
 # Aisel — Patients Management System
 
-Full-stack take-home: **Next.js + NestJS + PostgreSQL (Prisma)** with JWT role-based auth, patients CRUD, search/sort/pagination, optimistic UI updates, and simulated backend flakiness.
+This project demonstrates full-stack architecture, RBAC security design, and resilience handling under unreliable backend conditions.
+
+Built with **Next.js + NestJS + PostgreSQL (Prisma)**, it implements JWT-based authentication, role-based access control, and a patients management system with search, sorting, pagination, and optimistic UI updates. The backend also simulates latency and failures to test frontend resilience.
+
+It was completed as a time-boxed engineering exercise focused on prioritization, architecture decisions, and trade-off awareness.
 
 ## What I cut and why
 
@@ -20,6 +24,13 @@ Full-stack take-home: **Next.js + NestJS + PostgreSQL (Prisma)** with JWT role-b
 
 ## Setup
 
+### 0. Clone project
+
+```bash
+git clone https://github.com/rihenhouli/aisel-project.git
+cd aisel-project
+```
+
 ### 1. Install dependencies
 
 ```bash
@@ -33,7 +44,7 @@ cd apps/backend
 cp .env.example .env
 # Edit DATABASE_URL if needed
 
-npm run prisma:migrate -- --name init
+npx prisma migrate dev --name init
 npm run prisma:seed
 npm run start:dev
 ```
@@ -90,7 +101,8 @@ apps/
 ```
 
 
-BEFORE deployment : 
-hosted PostgreSQL : AWS RDS
-strong secret: "a9F2kLm9xPz8Qw1RANDOM_SECURE_SECRET"
+## Deployment notes (not included in repo)
+
+- PostgreSQL: hosted (AWS RDS / Neon / Supabase)
+- JWT_SECRET: stored securely in environment variables (not committed)
 
