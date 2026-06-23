@@ -1,0 +1,14 @@
+{
+  "name": "aisel-patients",
+  "private": true,
+  "workspaces": [
+    "apps/backend",
+    "apps/frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm run start:dev --workspace=apps/backend",
+    "dev:frontend": "npm run dev --workspace=apps/frontend",
+    "build": "npm run build --workspaces --if-present",
+    "test:backend": "npm run test --workspace=apps/backend"
+  }
+}
